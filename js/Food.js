@@ -40,13 +40,14 @@ class Food{
         }
     }
     bedroom(){
-        background(bedroom,480,450);
+        image(bedroom,350,350,280,280);
     }
     garden(){
-        background(garden,480,450);
+      //  background(garden,350,450,250,250);
+      image(garden,350,350,280,280);
     }
     washroom(){
-        background(washroon,480,450);
+        image(washroon,350,350,280,280);
     }
 
 }

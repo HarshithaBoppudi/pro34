@@ -73,29 +73,45 @@ fedTime.on("value",function(data){
    }
 
    if(gameState!="hungry"){
-     feed.hide;
+     feed.hide();
      addFood.hide();
      dog.remove()
    }else{
      feed.show();
      addFood.show();
      dog.addImage(saddog);
+     image(saddog,350,350,280,280)
    }
 
    currentTime=hour();
-   if(currentTime==(lastFed+1)){
+   if(currentTime==22){
      update("playing");
      foodObj.garden();
-   }else if(currentTime==(lastFed+2)){
+     feed.hide();
+     addFood.hide();
+     hide();
+   }else if(currentTime==21){
     update("sleeping");
     foodObj.bedroom()
-   }else if(currentTime>(lastFed+2)&&currentTime<=(lastFed+4)){
+    feed.hide();
+     addFood.hide();
+     hide();
+   }else if(currentTime==20){
      update("bathing");
      foodObj.washroon()
+     feed.hide();
+     addFood.hide();
+     hide();
    }else{
      update("hungry");
      foodObj.display();
+     dog.addImage(saddog);
+    // if(mousePressed(feedDog)){
+     // image(dog1,350,350,280,280);
+   // }
+   
    }
+  
 }
 function update(state){
   database.ref('/').update({
@@ -139,4 +155,7 @@ function addFoods(){
    
   })
 }
-
+function hide(){
+  feed.hide();
+  addFoods.hide();
+}
